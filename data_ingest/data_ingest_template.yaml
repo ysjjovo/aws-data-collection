@@ -223,27 +223,27 @@ Resources:
           CompressionFormat: UNCOMPRESSED
           Prefix: !Join ['/', [!Ref KinesisFirehoseS3Prefix, '']]
           RoleARN: !GetAtt KinesisFirehoseRole.Arn
-  Accelerator:
-    Type: AWS::GlobalAccelerator::Accelerator
-    Properties:
-      Name: SampleAccelerator
-      Enabled: !If [UseAccelerator, true, false]
-  Listener:
-    Type: AWS::GlobalAccelerator::Listener
-    Properties:
-      AcceleratorArn:
-        Ref: Accelerator
-      Protocol: TCP
-      PortRanges:
-      - FromPort: !Ref ElbListenerPort
-        ToPort: !Ref ElbListenerPort
-  EndpointGroup:
-    Type: AWS::GlobalAccelerator::EndpointGroup
-    Properties:
-      ListenerArn:
-        Ref: Listener
-      EndpointGroupRegion:
-        Ref: 'AWS::Region'
-      TrafficDialPercentage: 100
-      EndpointConfigurations:
-      - EndpointId: !If [CreateNlb, !Ref MyNLB, !Ref MyALB]
+  # Accelerator:
+  #   Type: AWS::GlobalAccelerator::Accelerator
+  #   Properties:
+  #     Name: SampleAccelerator
+  #     Enabled: !If [UseAccelerator, true, false]
+  # Listener:
+  #   Type: AWS::GlobalAccelerator::Listener
+  #   Properties:
+  #     AcceleratorArn:
+  #       Ref: Accelerator
+  #     Protocol: TCP
+  #     PortRanges:
+  #     - FromPort: !Ref ElbListenerPort
+  #       ToPort: !Ref ElbListenerPort
+  # EndpointGroup:
+  #   Type: AWS::GlobalAccelerator::EndpointGroup
+  #   Properties:
+  #     ListenerArn:
+  #       Ref: Listener
+  #     EndpointGroupRegion:
+  #       Ref: 'AWS::Region'
+  #     TrafficDialPercentage: 100
+  #     EndpointConfigurations:
+  #     - EndpointId: !If [CreateNlb, !Ref MyNLB, !Ref MyALB]

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Deploy/Update project on AWS by CloudFormation.
-
+# set -x
 arg_count=$#
 script_name=$(basename $0)
 stack_action=update
@@ -26,7 +26,7 @@ fi
 SHELL_PATH=$(cd "$(dirname "$0")";pwd)
 # Execute components deployment first.
 $SHELL_PATH/components/fluentbit/deploy_components.sh
-$SHELL_PATH/components/nginx_fluentbit/deploy_components.sh
+# $SHELL_PATH/components/nginx_fluentbit/deploy_components.sh
 $SHELL_PATH/components/nginx_aka/deploy_components.sh
 # Import global variables
 source $SHELL_PATH/../bootstrapping/config.sh

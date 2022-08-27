@@ -18,9 +18,9 @@ nginx_config_template_file="$SHELL_PATH/nginx.conf"
 sed "s/MACRO_NGINX_HTTP_PORT/$ec2_http_port/g" ${nginx_config_template_file}.template > $nginx_config_template_file
 
 # Upload fluent-bit repo file
-aws s3 cp "$SHELL_PATH/td-agent-bit.repo" "s3://$s3_deployment_bucket/image-builder/components/nginx-fluentbit/td-agent-bit.repo"
+# aws s3 cp "$SHELL_PATH/td-agent-bit.repo" "s3://$s3_deployment_bucket/image-builder/components/nginx-fluentbit/td-agent-bit.repo"
 # Upload fluent-bit config file
-aws s3 cp "$SHELL_PATH/td-agent-bit.conf" "s3://$s3_deployment_bucket/image-builder/components/nginx-fluentbit/td-agent-bit.conf"
+# aws s3 cp "$SHELL_PATH/td-agent-bit.conf" "s3://$s3_deployment_bucket/image-builder/components/nginx-fluentbit/td-agent-bit.conf"
 # Update nginx config file
 aws s3 cp "$SHELL_PATH/nginx.conf" "s3://$s3_deployment_bucket/image-builder/components/nginx-fluentbit/nginx.conf"
 # Update logrotate config file

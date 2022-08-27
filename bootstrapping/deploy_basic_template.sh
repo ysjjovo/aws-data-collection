@@ -1,6 +1,6 @@
 #!/bin/bash
 # Deploy/Update project on AWS by CloudFormation.
-
+set -x
 # Get script location.
 SHELL_PATH=$(cd "$(dirname "$0")";pwd)
 # Execute bootstrap first.

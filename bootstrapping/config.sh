@@ -39,7 +39,7 @@ fb_log_level="debug"
 # Enable Nginx or not. Allowed values are: true, false.
 nginx_enable="true"
 # ** SKIP Image Builder steps **, and use this AMI to launch EC2 instances.
-ec2_ami_id=""
+ec2_ami_id="ami-05330dcde95d83fdf"
 # EC2 instance HTTP listen port.
 ec2_http_port="7891"
 # Fluent Bit cluster instance type/size.
@@ -48,7 +48,7 @@ ec2_http_port="7891"
 ec2_instance_type="m6g.medium"
 # Fluent Bit instance's key pair name.
 # If you don't want to specify a key pair, leave this variable to empty.
-ec2_instance_key_pair="opalcube-aws-us-west-2-key-pair"
+ec2_instance_key_pair="guok-ec2"
 # Fluent Bit cluster ASG.
 # The ASG always keep 1 instance in running status. you MUST set max capacity greater than min capacity.
 asg_min_capacity=1
@@ -57,12 +57,12 @@ asg_desired_capacity=1
 # The type of load balancer. Allowed values are: application, network
 elb_type="application"
 # ELB's listener port. ELB will forward request from elb_listener_port to ec2_http_port.
-elb_listener_port=80
+elb_listener_port=443
 # ELB's ACM certificate that contained custom domain name.
 # If you just want to use HTTP protocal, leave this config variable to empty.
-elb_certificate="arn:aws:acm:us-west-2:027226252545:certificate/9135d3b4-dfc3-48a9-80c4-fce59654af3f"
+elb_certificate="arn:aws:acm:us-east-1:260527533511:certificate/9cfae34c-1f69-47c3-80dc-cf6cc8fd19c8"
 # Whether to enable Global Accelerator.
-aga_enable="true"
+aga_enable="false"
 # Kinesis stream mode. Allowed values are: ON_DEMAND, PROVISIONED
 kds_stream_mode="ON_DEMAND"
 # Kinesis stream shard count.
